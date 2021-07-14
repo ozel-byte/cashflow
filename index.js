@@ -4,8 +4,10 @@ const app = express();
 const sequelize = require("./DATABASE/db");
 
 const categoriaRoute = require('./routes/CategoriaRoute');
+const indicadoresRoute = require('./routes/indicadoresDineroRoute');
 
 app.use('/categoria', categoriaRoute);
+app.use('/indicadoresDinero', indicadoresRoute);
 
 app.get('/', (request, response) => {
     response.send("hello world")
