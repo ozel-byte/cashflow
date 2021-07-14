@@ -6,6 +6,8 @@ const sequelize = require("./DATABASE/db");
 const categoriaRoute = require('./routes/CategoriaRoute');
 const indicadoresRoute = require('./routes/indicadoresDineroRoute');
 
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
 app.use('/categoria', categoriaRoute);
 app.use('/indicadoresDinero', indicadoresRoute);
 
