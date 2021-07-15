@@ -1,10 +1,13 @@
 const {Model,DataTypes} = require('sequelize');
 const sequelize = require('../DATABASE/db');
 
-class IndicacadoresFinancieros extends Model{}
+class indicacadoresFinancieros extends Model{}
 
-InidacadoresFinancieros.init({
-    idIndicadoresDinero: DataTypes.STRING,
+indicacadoresFinancieros.init({
+    idIndicadoresDinero: {
+        primaryKey: true,
+        type: DataTypes.STRING
+    },
     tipoIndicador: DataTypes.STRING,
     numeroSemana: DataTypes.STRING,
     razonSocial: DataTypes.STRING,
@@ -12,4 +15,4 @@ InidacadoresFinancieros.init({
 
 },{sequelize, modelName: 'indicadoresDinero', freezeTableName: true});
 
-module.exports = IndicacadoresFinancieros;
+module.exports = indicacadoresFinancieros;
