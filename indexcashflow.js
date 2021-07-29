@@ -7,7 +7,7 @@ const categoriaRoute = require('./routes/CategoriaRoute');
 const indicadoresRoute = require('./routes/indicadoresDineroRoute');
 const flujoEfectivoRoute = require('./routes/flujoEfectivoRoute');
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3005;
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use('/categoria', categoriaRoute);
