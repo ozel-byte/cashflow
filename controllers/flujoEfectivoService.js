@@ -9,7 +9,8 @@ const addFlujoEfectivo = (req, res) => {
         fecha: req.body.fecha,
         idCategoria: req.body.idCategoria,
         descripcion: req.body.descripcion,
-        cantidad: req.body.cantidad
+        cantidad: req.body.cantidad,
+        numeroSemana: req.body.numeroSemana
     }).then(data =>{
         console.log("Agregado el flujo de efectivo");
         res.send("se creo el flujo de dinero")
@@ -20,7 +21,7 @@ const addFlujoEfectivo = (req, res) => {
 
 const getFlujoEfectivo = (req, res) => {
     flujoEfectivo.findAll({
-        attributes: ['idFlujoEfectivo', 'tipoFlujo', 'fecha', 'idCategoria', 'descripcion', 'cantidad']
+        attributes: ['idFlujoEfectivo', 'tipoFlujo', 'fecha', 'idCategoria', 'descripcion', 'cantidad','numeroSemana']
     }).then(data => {
         res.send(data)
     }).catch(e => {
