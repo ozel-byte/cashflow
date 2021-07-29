@@ -25,15 +25,9 @@ const getCategoria = (req,res) => {
     categoria.findAll({
         attributes: ['idCategoria','clasificacion','categoria','subCategoria']
     }).then(data => {
-        res.send({
-            categoria: data,
-            status: true
-        })
+        res.send(data)
     }).catch(e => {
-        res.send({
-            categoria: "no hay datos",
-            status: false
-        })
+        res.send("no hay nada")
     })
 }
 

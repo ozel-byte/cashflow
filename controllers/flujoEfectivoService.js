@@ -22,15 +22,9 @@ const getFlujoEfectivo = (req, res) => {
     flujoEfectivo.findAll({
         attributes: ['idFlujoEfectivo', 'tipoFlujo', 'fecha', 'idCategoria', 'descripcion', 'cantidad']
     }).then(data => {
-        res.send({
-            flujoEfectivo: data,
-            status: true
-        })
+        res.send(data)
     }).catch(e => {
-        res.send({
-            flujoEfectivo: "sin datos",
-            status: true
-        })
+        res.send("sin datos")
     })
 }
 

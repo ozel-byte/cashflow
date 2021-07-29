@@ -19,17 +19,11 @@ const addIndicador = (req, res) => {
 
 const getIndicadores = (req, res) => {
     indicadoresDAO.findAll({
-        attributes: ['numeroSemana', 'monto']
+        attributes: ['idIndicadoresDinero','tipoIndicador','numeroSemana','razonSocial', 'monto',]
     }).then(data => {
-        res.send({
-            indicadores: data,
-            status: true
-        })
+        res.send(data)
     }).catch(e => {
-        res.send({
-            indicadores: "No hay datos",
-            status: false 
-        })
+        res.send("no hay datos")
     })
 }
 
