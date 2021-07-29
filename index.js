@@ -15,7 +15,7 @@ app.use('/indicadoresDinero', indicadoresRoute);
 app.use('/flujoEfectivo', flujoEfectivoRoute);
 
 app.get('/', (request, response) => {
-    response.send("hello world")
+    response.send("hello")
 })
 
 app.listen(PORT, () => {
