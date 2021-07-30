@@ -12,7 +12,7 @@ indicacadoresFinancieros.init({
     },
     mes:DataTypes.STRING,
     tipoIndicador: DataTypes.STRING,
-    numeroSemana: DataTypes.STRING,
+    numeroSemana: DataTypes.INTEGER,
     razonSocial: DataTypes.STRING,
     monto: DataTypes.DOUBLE,
     fecha: DataTypes.STRING

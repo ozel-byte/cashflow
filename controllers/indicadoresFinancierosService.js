@@ -27,6 +27,13 @@ const getMesIndicadores = (req,res) => {
         res.send("error")
     })
 }
+const getCobrar = (req,res) => {
+    indicadoresDAO.findAll({
+        where: {
+            tipoIndicador: "cobrar"
+        }
+    })
+}
 const getIndicadores = (req, res) => {
     indicadoresDAO.findAll({
         attributes: ['idIndicadoresDinero','tipoIndicador','numeroSemana','razonSocial', 'monto','fecha']

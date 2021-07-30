@@ -16,7 +16,7 @@ FlujoDeEfectivo.init({
     fecha: DataTypes.STRING,
     descripcion: DataTypes.STRING,
     cantidad: DataTypes.DOUBLE,
-    numeroSemana: DataTypes.STRING
+    numeroSemana: DataTypes.INTEGER
 },
 {
     sequelize,
