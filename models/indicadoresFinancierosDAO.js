@@ -10,6 +10,7 @@ indicacadoresFinancieros.init({
         allowNull: false,
         primaryKey: true
     },
+    mes:DataTypes.STRING,
     tipoIndicador: DataTypes.STRING,
     numeroSemana: DataTypes.STRING,
     razonSocial: DataTypes.STRING,

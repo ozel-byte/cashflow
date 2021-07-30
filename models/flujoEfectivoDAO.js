@@ -11,6 +11,7 @@ FlujoDeEfectivo.init({
         allowNull: false,
         primaryKey: true
     },
+    mes: DataTypes.STRING,
     tipoFlujo: DataTypes.STRING,
     fecha: DataTypes.STRING,
     descripcion: DataTypes.STRING,

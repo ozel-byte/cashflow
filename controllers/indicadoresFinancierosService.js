@@ -3,6 +3,7 @@ const indicadoresDAO = require('../models/indicadoresFinancierosDAO');
 
 const addIndicador = (req, res) => {;
     indicadoresDAO.create({
+        mes: req.body.mes,
         tipoIndicador: req.body.tipoIndicador,
         numeroSemana: req.body.numeroSemana,
         razonSocial: req.body.razonSocial,

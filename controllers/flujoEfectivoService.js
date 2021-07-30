@@ -3,6 +3,7 @@ const flujoEfectivo = require('../models/flujoEfectivoDAO');
 
 const addFlujoEfectivo = (req, res) => {
     flujoEfectivo.create({
+        mes:req.body.mes,
         tipoFlujo: req.body.tipoFlujo,
         fecha: req.body.fecha,
         descripcion: req.body.descripcion,
