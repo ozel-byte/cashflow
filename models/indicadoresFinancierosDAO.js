@@ -5,13 +5,16 @@ class indicacadoresFinancieros extends Model{}
 
 indicacadoresFinancieros.init({
     idIndicadoresDinero: {
-        primaryKey: true,
-        type: DataTypes.STRING
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        primaryKey: true
     },
     tipoIndicador: DataTypes.STRING,
     numeroSemana: DataTypes.STRING,
     razonSocial: DataTypes.STRING,
-    monto: DataTypes.DOUBLE
+    monto: DataTypes.DOUBLE,
+    fecha: DataTypes.STRING
 
 },{sequelize, modelName: 'indicadoresDinero', freezeTableName: true});
 

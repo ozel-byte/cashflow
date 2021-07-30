@@ -3,12 +3,7 @@ const {v4: uuidv4} = require('uuid');
 
 
 const addCategoria = (req,res) => {
-    let uuiCategoria = uuidv4();
-    console.log(req.query.categoria + "c")
-   console.log(req.body.categoria);
-   console.log(req.body.subCategoria);
     categoria.create({
-        idCategoria: uuiCategoria,
         clasificacion: req.body.clasificacion,
         categoria: req.body.categoria,
         subCategoria: req.body.subCategoria

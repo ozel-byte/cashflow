@@ -1,16 +1,18 @@
 const {Model,DataTypes} = require('sequelize');
 const sequelize = require('../DATABASE/db');
+const Categoria = require('./CategoriaDAO');
 
 class FlujoDeEfectivo extends Model{}
 
 FlujoDeEfectivo.init({
     idFlujoEfectivo: {
-        primaryKey: true,
-        type: DataTypes.STRING
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        primaryKey: true
     },
     tipoFlujo: DataTypes.STRING,
     fecha: DataTypes.STRING,
-    idCategoria: DataTypes.STRING,
     descripcion: DataTypes.STRING,
     cantidad: DataTypes.DOUBLE,
     numeroSemana: DataTypes.STRING
@@ -20,6 +22,8 @@ FlujoDeEfectivo.init({
     modelName: 'flujoEfectivo',
     freezeTableName: true
 });
+
+FlujoDeEfectivo.Categoria = FlujoDeEfectivo.belongsTo(Categoria)
 
 module.exports = FlujoDeEfectivo;
 

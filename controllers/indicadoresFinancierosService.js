@@ -1,15 +1,13 @@
 const indicadoresDAO = require('../models/indicadoresFinancierosDAO');
-const {v4: uuidv4} = require('uuid');
 
-const addIndicador = (req, res) => {
-    let uuiIndicador = uuidv4();
 
+const addIndicador = (req, res) => {;
     indicadoresDAO.create({
-        idIndicadoresDinero: uuiIndicador,
         tipoIndicador: req.body.tipoIndicador,
         numeroSemana: req.body.numeroSemana,
         razonSocial: req.body.razonSocial,
-        monto: req.body.monto
+        monto: req.body.monto,
+        fecha: req.body.fecha
     }).then(data => {
         res.send("Se agrego el indicaodr");
     }).catch(e => {
@@ -19,7 +17,7 @@ const addIndicador = (req, res) => {
 
 const getIndicadores = (req, res) => {
     indicadoresDAO.findAll({
-        attributes: ['idIndicadoresDinero','tipoIndicador','numeroSemana','razonSocial', 'monto',]
+        attributes: ['idIndicadoresDinero','tipoIndicador','numeroSemana','razonSocial', 'monto','fecha']
     }).then(data => {
         res.send(data)
     }).catch(e => {

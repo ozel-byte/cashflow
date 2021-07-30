@@ -5,8 +5,10 @@ class Categoria extends Model{}
 
 Categoria.init({
     idCategoria: {
-        type: DataTypes.STRING,
-        primaryKey: true,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        primaryKey: true
     },
     clasificacion: DataTypes.STRING,
     categoria: DataTypes.STRING,

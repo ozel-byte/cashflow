@@ -1,16 +1,14 @@
 const flujoEfectivo = require('../models/flujoEfectivoDAO');
-const {v4: uuidv4} = require('uuid');
+
 
 const addFlujoEfectivo = (req, res) => {
-    let uuiTipoFlujo = uuidv4();
     flujoEfectivo.create({
-        idFlujoEfectivo: uuiTipoFlujo,
         tipoFlujo: req.body.tipoFlujo,
         fecha: req.body.fecha,
-        idCategoria: req.body.idCategoria,
         descripcion: req.body.descripcion,
         cantidad: req.body.cantidad,
-        numeroSemana: req.body.numeroSemana
+        numeroSemana: req.body.numeroSemana,
+        categoriumIdCategoria: req.body.idCategoria
     }).then(data =>{
         console.log("Agregado el flujo de efectivo");
         res.send("se creo el flujo de dinero")
@@ -21,7 +19,12 @@ const addFlujoEfectivo = (req, res) => {
 
 const getFlujoEfectivo = (req, res) => {
     flujoEfectivo.findAll({
-        attributes: ['idFlujoEfectivo', 'tipoFlujo', 'fecha', 'idCategoria', 'descripcion', 'cantidad','numeroSemana']
+        attributes: ['idFlujoEfectivo', 'tipoFlujo', 'fecha','descripcion', 'cantidad','numeroSemana'],
+        include: [
+            {
+                association: flujoEfectivo.Categoria
+            }
+        ]
     }).then(data => {
         res.send(data)
     }).catch(e => {
