@@ -18,6 +18,7 @@ const addFlujoEfectivo = (req, res) => {
     })
 }
 
+
 const getFlujoEfectivo = (req, res) => {
     flujoEfectivo.findAll({
         attributes: ['idFlujoEfectivo', 'tipoFlujo', 'fecha','descripcion', 'cantidad','numeroSemana'],
