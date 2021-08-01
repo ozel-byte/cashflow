@@ -1,7 +1,7 @@
 
 const { Sequelize } = require('sequelize');
 const indicadoresDAO = require('../models/indicadoresFinancierosDAO');
-
+const Semana = require('../models/semana')
 const addIndicador = (req, res) => {
     indicadoresDAO.create({
         mes: req.body.mes,
@@ -17,20 +17,6 @@ const addIndicador = (req, res) => {
     })
 }
 
-const getMesIndicadores = (req,res) => {
-    indicadoresDAO.findAll({
-        attributes: [
-            'idIndicadoresDinero','tipoIndicador','numeroSemana','razonSocial', 'monto','fecha','mes'
-        ],
-        where: {
-            mes: req.body.mes
-        }
-    }).then(data => {
-        res.send(data);
-    }).catch(e => {
-        res.send("error")
-    })
-}
 const getCobrar = (req,res) => {
  
    indicadoresDAO.findAll({
@@ -75,7 +61,7 @@ const getIndicadores = (req, res) => {
 module.exports = {
     addIndicador,
     getIndicadores,
-    getMesIndicadores,
+    getIndicadores,
     getCobrar,
     getRazonSocialArraySemanas
 }
