@@ -52,9 +52,15 @@ const getIndicadores = (req, res) => {
     indicadoresDAO.findAll({
         attributes: ['idIndicadoresDinero','tipoIndicador','numeroSemana','razonSocial', 'monto','fecha']
     }).then(data => {
-        res.send(data)
+        res.send({
+            find: "true",
+            body: data
+        })
     }).catch(e => {
-        res.send("no hay datos")
+        res.send({
+            find: "false",
+            body: []
+        })
     })
 }
 
