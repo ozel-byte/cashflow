@@ -2,7 +2,21 @@ const { Sequelize, Op } = require('sequelize');
 const FlujoDeEfectivo = require('../models/flujoEfectivoDAO');
 const semana = require('../models/semana');
 
-
+const getPdf = (req,res) => {
+    semana.findAll({
+        attributes:['id','descripcion','numeroSemana','monto','mes','tipo'],
+    }).then(data => {
+        res.send({
+            find: "true",
+            body: data
+        })
+    }).catch( e => {
+        res.send({
+            find: "false",
+            body: []
+        })
+    })
+}
 const getSemanaReporte = async (requere,res) => {
  
     let aux = [];
@@ -82,5 +96,6 @@ async  function datosSemanas(response){
 }
 
 module.exports = {
-    getSemanaReporte
+    getSemanaReporte,
+    getPdf
 };
