@@ -1,10 +1,10 @@
 const {Sequelize} = require('sequelize');
 
 /*Configuracion de la base de datos */
-let name = "cashflow";
-let user = "administrador";
-let pass = "4DM1N.8ry20Mzr";
-let host = "167.172.146.90";
+let name = "";
+let user = "";
+let pass = "";
+let host = "";
 const sequelize = new Sequelize(
    name,
     user,
