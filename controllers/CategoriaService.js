@@ -1,7 +1,6 @@
-const categoria = require('../models/CategoriaDAO');
+
 const {v4: uuidv4} = require('uuid');
-
-
+const categoria = require('../models/CategoriaDAO')
 const addCategoria = (req,res) => {
     categoria.create({
         clasificacion: req.body.clasificacion,
@@ -17,12 +16,8 @@ const addCategoria = (req,res) => {
 }
 
 const getCategoria = (req,res) => {
-    categoria.findAll({
-        attributes: ['idCategoria','clasificacion','categoria','subCategoria']
-    }).then(data => {
-        res.send(data)
-    }).catch(e => {
-        res.send("no hay nada")
+    coneccion.query("select * from categoria", (data) => {
+        res.send(data);
     })
 }
 
