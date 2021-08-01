@@ -8,9 +8,15 @@ const getSemanaReporte = async (requere,res) => {
     });
 
     if (response.length>0) {
-        res.send(response);
+        res.send({
+            find: "true",
+            body:response
+        });
     }else{
-        res.send("error")
+        res.send({
+            find: "false",
+            body: []
+        })
     }
     
 }

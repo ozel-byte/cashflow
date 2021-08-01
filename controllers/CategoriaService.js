@@ -1,5 +1,4 @@
 
-const {v4: uuidv4} = require('uuid');
 const categoria = require('../models/CategoriaDAO')
 const addCategoria = (req,res) => {
     categoria.create({
@@ -15,10 +14,22 @@ const addCategoria = (req,res) => {
     
 }
 
-const getCategoria = (req,res) => {
-    coneccion.query("select * from categoria", (data) => {
-        res.send(data);
-    })
+const getCategoria = async (req,res) => {
+
+   let response = await categoria.findAll({
+        attributes: ['idCategoria','clasificacion','categoria','subCategoria']
+    });
+    if(response.length>0){
+        res.send({
+            find: "true",
+            body: response
+        });
+    }else{
+        res.send({
+            find: "false",
+            body: []
+        });
+    }
 }
 
 

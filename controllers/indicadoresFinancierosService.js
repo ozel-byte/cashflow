@@ -16,6 +16,7 @@ const addIndicador = (req, res) => {
         res.send("No se pudo agregar el indicador");
     })
 }
+
 const getMesIndicadores = (req,res) => {
     indicadoresDAO.findAll({
         attributes: [

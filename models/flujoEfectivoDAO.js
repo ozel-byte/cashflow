@@ -27,6 +27,7 @@ FlujoDeEfectivo.init({
 
 FlujoDeEfectivo.Categoria = FlujoDeEfectivo.belongsTo(Categoria);
 FlujoDeEfectivo.Semana = FlujoDeEfectivo.belongsTo(Semana);
+
 module.exports = FlujoDeEfectivo;
 
 

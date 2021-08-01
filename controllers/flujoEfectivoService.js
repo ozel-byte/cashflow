@@ -2,6 +2,8 @@ const coneccion = require('../DATABASE/db');
 const flujoEfectivo = require('../models/flujoEfectivoDAO');
 const Semana = require('../models/semana');
 const {QueryTypes} = require('sequelize');
+const { associations } = require('../models/semana');
+const { Categoria } = require('../models/flujoEfectivoDAO');
 
 const addFlujoEfectivo = async (req, res) => {
   Semana.create({
@@ -30,7 +32,25 @@ const addFlujoEfectivo = async (req, res) => {
 
 const getFlujoEfectivo = async (req, res) => {
 
+  let response = await  flujoEfectivo.findAll({
+        attributes: ['idFlujoEfectivo','mes','fecha','tipo','categoriumIdCategoria','SemanaId'],
+        include: [
+            {association: flujoEfectivo.Categoria},
+            {association: flujoEfectivo.Semana}
+        ]
+    });
 
+    if(response.length>0){
+        res.send({
+            find: "true",
+            body: response
+        })
+    }else{
+        res.send({
+            find: "false",
+            body: []
+        })
+    }
     // coneccion.query("select * from Categoria", (data) => {
     //     res.send(data);
     // })
