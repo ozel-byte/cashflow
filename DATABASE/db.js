@@ -1,16 +1,13 @@
 const {Sequelize} = require('sequelize');
-
+const {database} = require('../config');
 /*Configuracion de la base de datos */
-let name = "";
-let user = "";
-let pass = "";
-let host = "";
+
 const sequelize = new Sequelize(
-   name,
-    user,
-    pass,
+    database.db_server,
+    database.username_server,
+    database.password_server,
     {
-        host: host,
+        host: database.host_server,
         dialect: 'mysql',
         define : {
             timestamps: false
