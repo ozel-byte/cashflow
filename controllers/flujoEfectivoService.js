@@ -12,6 +12,7 @@ const addFlujoEfectivo = async (req, res) => {
         monto: req.body.cantidad,
         mes:req.body.mes,
         tipo: req.body.tipoFlujo,
+        categoriumIdCategoria: req.body.idCategoria
     }).then(data => {
         flujoEfectivo.create({
             mes:req.body.mes,

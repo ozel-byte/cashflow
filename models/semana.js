@@ -1,5 +1,6 @@
 const {Model,DataTypes} = require('sequelize');
 const sequelize = require('../DATABASE/db');
+const Categoria = require('./CategoriaDAO');
 
 
 class Semana extends Model{}
@@ -26,5 +27,7 @@ Semana.init({
     freezeTableName: true,
     
 });
+
+Semana.Categoria = Semana.belongsTo(Categoria);
 
 module.exports = Semana;

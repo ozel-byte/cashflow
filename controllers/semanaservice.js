@@ -5,11 +5,14 @@ const semana = require('../models/semana');
 const getPdf = (req,res) => {
     semana.findAll({
         attributes:['id','descripcion','numeroSemana','monto','mes','tipo'],
+        include: [
+            {association: semana.Categoria}
+        ]
     }).then(data => {
         res.send({
             find: "true",
             body: data
-        })
+        });
     }).catch( e => {
         res.send({
             find: "false",
