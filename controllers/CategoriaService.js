@@ -1,5 +1,7 @@
 
-const categoria = require('../models/CategoriaDAO')
+const sequelize = require('../DATABASE/db');
+const categoria = require('../models/CategoriaDAO');
+const {QueryTypes} = require('sequelize');
 const addCategoria = (req,res) => {
     categoria.create({
         clasificacion: req.body.clasificacion,
@@ -33,7 +35,24 @@ const getCategoria = async (req,res) => {
 }
 
 
+const updateCategoria = (req,res) => {
+    let query = "UPDATE categoria SET clasificacion = '"+req.params.clasificacion+"', categoria='"+req.params.categoria+"', subCategoria='"+req.params.subCategoria+"' where idCategoria='"+req.params.idCategoria+"'";
+    sequelize.query(query,{ type: QueryTypes.SELECT }).then(data =>{
+        res.send({
+            find: "true",
+            body: "se actualizo correctamente"
+        })
+    }).catch(e => {
+        res.send({
+            find: "false",
+            body: "error no se pudo actualizar"
+        })
+    })
+}
+
+
 module.exports = {
     addCategoria,
-    getCategoria
+    getCategoria,
+    updateCategoria
 };
