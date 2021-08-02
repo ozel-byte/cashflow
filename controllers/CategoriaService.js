@@ -36,7 +36,9 @@ const getCategoria = async (req,res) => {
 
 
 const updateCategoria = (req,res) => {
-    let query = "UPDATE categoria SET clasificacion = '"+req.params.clasificacion+"', categoria='"+req.params.categoria+"', subCategoria='"+req.params.subCategoria+"' where idCategoria='"+req.params.idCategoria+"'";
+    console.log(req.body.clasificacion);
+
+    let query = "UPDATE categoria SET clasificacion = '"+req.body.clasificacion+"', categoria='"+req.body.categoria+"', subCategoria='"+req.body.subCategoria+"' where idCategoria='"+req.body.idCategoria+"'";
     sequelize.query(query,{ type: QueryTypes.SELECT }).then(data =>{
         res.send({
             find: "true",
